@@ -33,8 +33,9 @@ public:
 	Airplane operator++() { return Airplane(name, type, ++countPeople); }
 	Airplane operator--() { return Airplane(name, type, --countPeople); }
 	friend void operator>(Airplane& c1, Airplane& c2);
+	//friend bool operator>(Airplane& c1, Airplane& c2);
+	bool operator>(Airplane& a) { return this->countPeople > a.countPeople; }
 	void print() { cout << "Name: " << name << "\nType: " << type << "\nCapacity: " << countPeople << endl; }
-	
 };
 
 void operator>(Airplane& c1, Airplane& c2)
@@ -60,7 +61,7 @@ int main()
 	--a3;
 	a3.print();
 	bool t;
-	a2 > a3;
+	t = a2 > a3;
 
 	return 0;
 }
